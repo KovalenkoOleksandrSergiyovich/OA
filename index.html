@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-52L823C');</script>
-<!-- End Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-52L823C');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Supreme Filmmaking</title>
@@ -74,6 +78,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin-bottom: 20px;
     }
 
+    /* Form styles */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input,
+    select {
+      margin-bottom: 20px;
+      padding: 10px;
+      width: 300px;
+    }
+
     /* Footer styles */
     footer {
       background-color: #2c3e50;
@@ -87,11 +110,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
   </style>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52L823C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52L823C" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <nav>
       <ul>
@@ -100,17 +124,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><button id="portfolio">Portfolio</button></li>
         <li><button id="contact">Contact</button></li>
       </ul>
-      <button>Services</button>
+      <button id="services" onclick="openOrderForm()">Order Now</button>
     </nav>
   </header>
   <main>
     <h1>Welcome to Supreme Filmmaking</h1>
     <p>We are a full-service filmmaking company dedicated to producing high-quality video content for our clients.</p>
-    <p>Our team of experienced filmmakers can help you with all stages of video production, from concept development to post-production and delivery.</p>
-    <p>Explore our portfolio to see some of our recent work, and don't hesitate to contact us if you have any questions or would like to discuss a project.</p>
+    <p>Our team of experienced filmmakers can help you with all stages of video production, from concept development to
+      post-production and delivery.</p>
+    <p>Explore our portfolio to see some of our recent work, and don't hesitate to contact us if you have any questions
+      or would like to discuss a project.</p>
   </main>
   <footer>
     <p>&copy; 2023 Supreme Filmmaking. All rights reserved.</p>
   </footer>
+
+  <script>
+    function openOrderForm() {
+      window.open("order.html", "_blank");
+    }
+  </script>
 </body>
+
 </html>
