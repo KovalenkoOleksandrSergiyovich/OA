@@ -104,6 +104,15 @@
             'send_to': '354432308'
         });
     });
+    // Код для натискання на кнопку
+    document.getElementById('submitButton').addEventListener('click', function() {
+    // Відстежити подію натискання на кнопку з категорією та міткою
+    gtag('event', 'button_click', {
+      'event_category': 'button',
+      'event_label': 'cta',
+      'send_to': '354432308'
+    });
+  });
 </script>
 
 </html>
