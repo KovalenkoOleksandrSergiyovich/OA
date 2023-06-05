@@ -89,7 +89,7 @@
         <label for="information">Request Information</label>
         <input type="checkbox" id="information" name="information">
 
-        <button id="submitButton" type="submit">Submit</button>
+        <button id="submitButton" type="submit" onclick="trackConversion()">Submit</button>
         <button id="cancelButton" type="reset" onclick="window.location.href='index.html'">Cancel</button>
     </form>
 </body>
@@ -104,15 +104,28 @@
             'send_to': '354432308'
         });
     });
-    // Код для натискання на кнопку
-    document.getElementById('submitButton').addEventListener('click', function() {
-    // Відстежити подію натискання на кнопку з категорією та міткою
-    gtag('event', 'button_click', {
-      'event_category': 'button',
-      'event_label': 'cta',
-      'send_to': '354432308'
+        function trackConversion() {
+    // Отримуємо значення вибраної послуги з форми
+    var selectedService = document.getElementById('service').value;
+
+    // Викликаємо функцію відстеження конверсії Google Analytics з доданим динамічним параметром
+    gtag('event', 'conversion', {
+      'send_to': 'YOUR_REMARKETING_ID',
+      'value': '0.00',
+      'currency': 'USD',
+      'dynamic_service': selectedService
     });
-  });
+
+    // Очищаємо дані форми
+    document.getElementById('fullName').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('service').value = '';
+    document.getElementById('certificate').checked = false;
+
+    // Перенаправляємо користувача на головну сторінку
+    window.location.href = 'index.html';
+  }
+</script>
 </script>
 
 </html>
