@@ -20,7 +20,44 @@
   gtag('config', 'AW-674958375');
     </script>
     <!-- End Google Tag Manager -->
-    
+    <script>
+    document.getElementById('service').addEventListener('change', function () {
+        var selectedValue = this.value; // Отримати значення вибраного елемента
+
+        // Передати значення вибраного елемента як спеціальний показник до Google Analytics
+        gtag('event', 'dropdown_select', {
+            'event_category': 'dropdown',
+            'event_label': selectedValue,
+            'send_to': '354432308'
+        });
+    });
+  <!-- Event snippet for conversion conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+function gtag_report_conversion(url) {
+    var selectedService = document.getElementById('service').value;
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-674958375/HRONCPfMg6gYEKeY7MEC',
+      'event_callback': callback,
+      'dynamic_service': selectedService
+  });
+  return false;
+}
+
+    // Очищаємо дані форми
+    document.getElementById('fullName').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('service').value = '';
+    document.getElementById('certificate').checked = false;
+
+    // Перенаправляємо користувача на головну сторінку
+    window.location.href = 'index.html';
+  }
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Form</title>
@@ -94,43 +131,4 @@
         <button id="cancelButton" type="reset" onclick="window.location.href='index.html'">Cancel</button>
     </form>
 </body>
-<script>
-    document.getElementById('service').addEventListener('change', function () {
-        var selectedValue = this.value; // Отримати значення вибраного елемента
-
-        // Передати значення вибраного елемента як спеціальний показник до Google Analytics
-        gtag('event', 'dropdown_select', {
-            'event_category': 'dropdown',
-            'event_label': selectedValue,
-            'send_to': '354432308'
-        });
-    });
-  <!-- Event snippet for conversion conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-function gtag_report_conversion(url) {
-    var selectedService = document.getElementById('service').value;
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-674958375/HRONCPfMg6gYEKeY7MEC',
-      'event_callback': callback,
-      'dynamic_service': selectedService
-  });
-  return false;
-}
-
-    // Очищаємо дані форми
-    document.getElementById('fullName').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('service').value = '';
-    document.getElementById('certificate').checked = false;
-
-    // Перенаправляємо користувача на головну сторінку
-    window.location.href = 'index.html';
-  }
-</script>
-
 </html>
