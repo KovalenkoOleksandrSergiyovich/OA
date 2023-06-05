@@ -17,6 +17,7 @@
   gtag('js', new Date());
 
   gtag('config', 'GTM-52L823C');
+  gtag('config', 'AW-674958375');
     </script>
     <!-- End Google Tag Manager -->
     
@@ -89,7 +90,7 @@
         <label for="information">Request Information</label>
         <input type="checkbox" id="information" name="information">
 
-        <button id="submitButton" type="submit" onclick="trackConversion()">Submit</button>
+        <button id="submitButton" type="submit" onclick="gtag_report_conversion('index.html')">Submit</button>
         <button id="cancelButton" type="reset" onclick="window.location.href='index.html'">Cancel</button>
     </form>
 </body>
@@ -104,17 +105,20 @@
             'send_to': '354432308'
         });
     });
-        function trackConversion() {
-    // Отримуємо значення вибраної послуги з форми
-    var selectedService = document.getElementById('service').value;
-
-    // Викликаємо функцію відстеження конверсії Google Analytics з доданим динамічним параметром
-    gtag('event', 'conversion', {
-      'send_to': '354432308',
-      'value': '1.00',
-      'currency': 'UAH',
-      'dynamic_service': selectedService
-    });
+  <!-- Event snippet for conversion conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-674958375/HRONCPfMg6gYEKeY7MEC',
+      'event_callback': callback
+  });
+  return false;
+}
 
     // Очищаємо дані форми
     document.getElementById('fullName').value = '';
@@ -125,7 +129,6 @@
     // Перенаправляємо користувача на головну сторінку
     window.location.href = 'index.html';
   }
-</script>
 </script>
 
 </html>
