@@ -108,6 +108,7 @@
   <!-- Event snippet for conversion conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 function gtag_report_conversion(url) {
+    var selectedService = document.getElementById('service').value;
   var callback = function () {
     if (typeof(url) != 'undefined') {
       window.location = url;
@@ -115,7 +116,8 @@ function gtag_report_conversion(url) {
   };
   gtag('event', 'conversion', {
       'send_to': 'AW-674958375/HRONCPfMg6gYEKeY7MEC',
-      'event_callback': callback
+      'event_callback': callback,
+      'dynamic_service': selectedService
   });
   return false;
 }
