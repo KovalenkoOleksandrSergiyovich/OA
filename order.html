@@ -8,31 +8,14 @@
         function gtag() { dataLayer.push(arguments); }
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+                'gtm.start': new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-52L823C');
         <!-- End Google Tag Manager -->
-        if (typeof document.getElementById('service') !== null && document.getElementById('service') !== 'undefined') {
-            document.getElementById('service').addEventListener('change', function () {
-                var selectedValue = this.value; // Отримати значення вибраного елемента
-
-                // Передати значення вибраного елемента як спеціальний показник до Google Analytics
-                gtag('event', 'dropdown_select', {
-                    'event_category': 'dropdown',
-                    'event_label': selectedValue,
-                    'send_to': 'G-8S4XGFGCJV'
-                });
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-11208743849/lPUoCPe0t6gYEKm33-Ap',
-                    'value': 1.0,
-                    'currency': 'UAH',
-                    'transaction_id': ''
-                });
-            });
-        }
         gtag('config', 'AW-11208743849');
     </script>
     <meta charset="UTF-8">
@@ -100,7 +83,27 @@
             <option id="soundStudio" value="soundStudio">Sound Studio</option>
             <option id="postProduction" value="postProduction">Post Production</option>
         </select>
+        <script>
+            var elem = document.getElementById('service');
+            if (typeof elem !== null && elem !== 'undefined') {
+                elem.addEventListener('change', function () {
+                    var selectedValue = this.value; // Отримати значення вибраного елемента
 
+                    // Передати значення вибраного елемента як спеціальний показник до Google Analytics
+                    gtag('event', 'dropdown_select', {
+                        'event_category': 'dropdown',
+                        'event_label': selectedValue,
+                        'send_to': 'G-8S4XGFGCJV'
+                    });
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-11208743849/lPUoCPe0t6gYEKm33-Ap',
+                        'value': 1.0,
+                        'currency': 'UAH',
+                        'transaction_id': ''
+                    });
+                });
+            }
+        </script>
         <label for="information">Request Information</label>
         <input type="checkbox" id="information" name="information">
 
@@ -108,4 +111,5 @@
         <button id="cancelButton" type="reset" onclick="window.location.href='index.html'">Cancel</button>
     </form>
 </body>
+
 </html>
