@@ -17,7 +17,7 @@
   gtag('js', new Date());
 
   gtag('config', 'GTM-52L823C');
-  gtag('config', 'AW-674958375');
+  //gtag('config', 'AW-674958375');
     </script>
     <!-- End Google Tag Manager -->
     <script>
@@ -31,30 +31,29 @@
             'send_to': '354432308'
         });
     });
-  <!-- Event snippet for conversion conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-function gtag_report_conversion(url) {
-    var selectedService = document.getElementById('service').value;
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-674958375/HRONCPfMg6gYEKeY7MEC',
-      'event_callback': callback,
-      'dynamic_service': selectedService
-  });
-  return false;
-    // Очищаємо дані форми
-    document.getElementById('fullName').value = '';
+  document.getElementById('submitButton').addEventListener('click', function() {
+    gtag('event', 'button_click', {
+      'event_category': 'button',
+      'event_label': 'cta',
+      'send_to': '354432308'
+    });
+
+    // Додатковий код для передачі даних до Google Ads
+    gtag('event', 'conversion', {
+      'send_to': 'AW-674958375',
+      'value': 1.0,
+      'currency': 'UAH',
+      'transaction_id': ''
+    });
+        // Очищаємо дані форми
+        document.getElementById('fullName').value = '';
     document.getElementById('email').value = '';
     document.getElementById('service').value = '';
     document.getElementById('certificate').checked = false;
 
     // Перенаправляємо користувача на головну сторінку
     window.location.href = 'index.html';
-  }
+  });
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,7 +124,7 @@ function gtag_report_conversion(url) {
         <label for="information">Request Information</label>
         <input type="checkbox" id="information" name="information">
 
-        <button id="submitButton" type="submit" onclick="gtag_report_conversion('index.html')">Submit</button>
+        <button id="submitButton" type="submit">Submit</button>
         <button id="cancelButton" type="reset" onclick="window.location.href='index.html'">Cancel</button>
     </form>
 </body>
