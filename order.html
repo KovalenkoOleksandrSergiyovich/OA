@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    
-<!-- Google Tag Manager -->
+
+    <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
@@ -13,48 +13,59 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-52L823C');
         window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'GTM-52L823C');
+        gtag('config', 'GTM-52L823C');
   //gtag('config', 'AW-674958375');
     </script>
     <!-- End Google Tag Manager -->
     <script>
-    document.getElementById('service').addEventListener('change', function () {
-        var selectedValue = this.value; // Отримати значення вибраного елемента
+        document.getElementById('service').addEventListener('change', function () {
+            var selectedValue = this.value; // Отримати значення вибраного елемента
 
-        // Передати значення вибраного елемента як спеціальний показник до Google Analytics
-        gtag('event', 'dropdown_select', {
-            'event_category': 'dropdown',
-            'event_label': selectedValue,
-            'send_to': '354432308'
+            // Передати значення вибраного елемента як спеціальний показник до Google Analytics
+            gtag('event', 'dropdown_select', {
+                'event_category': 'dropdown',
+                'event_label': selectedValue,
+                'send_to': '354432308'
+            });
         });
-    });
-  document.getElementById('submitButton').addEventListener('click', function() {
-    gtag('event', 'button_click', {
-      'event_category': 'button',
-      'event_label': 'cta',
-      'send_to': '354432308'
-    });
+        document.getElementById('submitButton').addEventListener('click', function () {
+            var dropdown = document.getElementById('dropdown');
+            var selectedOption = dropdown.options[dropdown.selectedIndex].value;
 
-    // Додатковий код для передачі даних до Google Ads
-    gtag('event', 'conversion', {
-      'send_to': 'AW-674958375',
-      'value': 1.0,
-      'currency': 'UAH',
-      'transaction_id': ''
-    });
-        // Очищаємо дані форми
-        document.getElementById('fullName').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('service').value = '';
-    document.getElementById('certificate').checked = false;
+            gtag('event', 'conversion', {
+                'send_to': 'G-8S4XGFGCJV',
+                'event_name': 'conversion',
+                'event_params': {
+                    'category': 'dropdown_conversion',
+                    'label': selectedOption
+                }
+            });
+            gtag('event', 'button_click', {
+                'event_category': 'button',
+                'event_label': 'cta',
+                'send_to': '354432308'
+            });
 
-    // Перенаправляємо користувача на головну сторінку
-    //window.location.href = 'index.html';
-  });
-</script>
+            // Додатковий код для передачі даних до Google Ads
+            gtag('event', 'conversion', {
+                'send_to': 'AW-674958375',
+                'value': 1.0,
+                'currency': 'UAH',
+                'transaction_id': ''
+            });
+            // Очищаємо дані форми
+            document.getElementById('fullName').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('service').value = '';
+            document.getElementById('certificate').checked = false;
+
+            // Перенаправляємо користувача на головну сторінку
+            window.location.href = 'index.html';
+        });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Form</title>
@@ -128,4 +139,5 @@
         <button id="cancelButton" type="reset" onclick="window.location.href='index.html'">Cancel</button>
     </form>
 </body>
+
 </html>
