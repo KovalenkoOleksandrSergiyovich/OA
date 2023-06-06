@@ -12,6 +12,18 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-52L823C');</script>
     <!-- End Google Tag Manager -->
+    <script>
+    document.getElementById('service').addEventListener('change', function () {
+        var selectedValue = this.value; // Отримати значення вибраного елемента
+
+        // Передати значення вибраного елемента як спеціальний показник до Google Analytics
+        gtag('event', 'dropdown_select', {
+            'event_category': 'dropdown',
+            'event_label': selectedValue,
+            'send_to': 'G-8S4XGFGCJV'
+        });
+    });
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Form</title>
@@ -85,17 +97,4 @@
         <button id="cancelButton" type="reset" onclick="window.location.href='index.html'">Cancel</button>
     </form>
 </body>
-<script>
-    document.getElementById('service').addEventListener('change', function () {
-        var selectedValue = this.value; // Отримати значення вибраного елемента
-
-        // Передати значення вибраного елемента як спеціальний показник до Google Analytics
-        gtag('event', 'dropdown_select', {
-            'event_category': 'dropdown',
-            'event_label': selectedValue,
-            'send_to': '354432308'
-        });
-    });
-</script>
-
 </html>
