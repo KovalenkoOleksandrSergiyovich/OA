@@ -2,69 +2,16 @@
 <html lang="en">
 
 <head>
-
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-52L823C');
-    </script>
-    <!-- End Google Tag Manager -->
-    <!-- Google Analytics -->
-    <script>(function (w, d, s, l, u) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
                     new Date().getTime(), event: 'gtm.js'
             }); var f = d.getElementsByTagName(s)[0],
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtag/js?id=' + u + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-52L823C');
-    </script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        document.getElementById('submitButton').addEventListener('click', function () {
-            var selectedValue = document.getElementById('dropdown').value;
-
-            // Надіслати конверсію до Google Ads
-            gtag('event', 'conversion', {
-                'send_to': 'AW-674958375', // Ваш ID рахунку Google Ads
-                'value': 1.0, // Значення конверсії
-                'currency': 'UAH', // Валюта
-                'transaction_id': '', // Ідентифікатор транзакції (за потреби)
-                'event_category': 'Dropdown Selection',
-                'event_label': selectedValue
-            });
-
-            // Надіслати конверсію до Google Analytics
-            gtag('event', 'conversion', {
-                'send_to': 'G-8S4XGFGCJV', // Ваш ID потоку Google Analytics
-                'value': 1.0, // Значення конверсії
-                'currency': 'UAH', // Валюта
-                'transaction_id': '', // Ідентифікатор транзакції (за потреби)
-                'event_category': 'Dropdown Selection',
-                'event_label': selectedValue
-            });
-        });
-    </script>
-    <!-- End Google Analytics -->
-    <script>
-        document.getElementById('service').addEventListener('change', function () {
-            var selectedValue = this.value; // Отримати значення вибраного елемента
-
-            // Передати значення вибраного елемента як спеціальний показник до Google Analytics
-            gtag('event', 'dropdown_select', {
-                'event_category': 'dropdown',
-                'event_label': selectedValue,
-                'send_to': '354432308'
-            });
-        });
-
-    </script>
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-52L823C');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Form</title>
@@ -138,5 +85,17 @@
         <button id="cancelButton" type="reset" onclick="window.location.href='index.html'">Cancel</button>
     </form>
 </body>
+<script>
+    document.getElementById('service').addEventListener('change', function () {
+        var selectedValue = this.value; // Отримати значення вибраного елемента
+
+        // Передати значення вибраного елемента як спеціальний показник до Google Analytics
+        gtag('event', 'dropdown_select', {
+            'event_category': 'dropdown',
+            'event_label': selectedValue,
+            'send_to': '354432308'
+        });
+    });
+</script>
 
 </html>
