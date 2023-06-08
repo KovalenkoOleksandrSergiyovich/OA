@@ -102,13 +102,14 @@
                         'transaction_id': ''
                     });
                     gtag(
-                        'event': 'serviceSelection',
-                        'dynamicParams': {
+                        'event', 'serviceSelection',
+                        'dynamicParams', {
                             'ecomm_prodid': selectedValue,
                             'ecomm_pagetype': 'orderPage',
                             'ecomm_totalvalue': '1',
                             'ecomm_category': 'service'
-                    });
+                        }
+                    );
                 });
             }
         </script>
