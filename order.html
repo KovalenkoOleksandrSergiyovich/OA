@@ -101,14 +101,13 @@
                         'currency': 'UAH',
                         'transaction_id': ''
                     });
-                    gtag({
+                    gtag(
                         'event': 'serviceSelection',
                         'dynamicParams': {
                             'ecomm_prodid': selectedValue,
                             'ecomm_pagetype': 'orderPage',
                             'ecomm_totalvalue': '1',
                             'ecomm_category': 'service'
-                        }
                     });
                 });
             }
